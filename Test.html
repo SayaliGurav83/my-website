@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine Day</title>
+    <style>
+        html {
+            background-color: #e9f1f7;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+
+        .panel {
+            height: 220px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            padding: 20px;
+            background: #ffffff;
+            border: 2px solid #1f3c88;
+            border-radius: 10px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        .panel h3 {
+            margin-top: 20px;
+            color: #1f3c88;
+            font-size: 24px;
+        }
+
+        .btn-container {
+            margin-top: 51px;
+    position: relative;
+    height: 200px;
+    margin-right: 97px;
+        }
+
+        button {
+            padding: 10px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .yes-btn {
+            background-color: #c1121f;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .no-btn {
+            background-color: #495057;
+            color: white;
+            position: absolute;
+            left: 50%;
+            transform: translateX(60px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="panel">
+        <h3>Prafulla Will you be my Valentine? ❤️</h3>
+
+        <div class="btn-container">
+            <button class="yes-btn" id="yesBtn">Yes</button>
+            <button class="no-btn" id="noBtn">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const container = document.querySelector(".btn-container");
+
+        // No button moves
+        noBtn.addEventListener("mouseover", () => {
+            const maxX = container.offsetWidth - noBtn.offsetWidth;
+            const maxY = container.offsetHeight - noBtn.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        });
+
+        // Yes button click opens new page
+        const yesBtn = document.getElementById("yesBtn");
+        yesBtn.addEventListener("click", () => {
+            window.location.href = "valentine2.html"; // change to your next HTML page
+        });
+ 	  noBtn.addEventListener("click", () => {
+            alert("Invalid choice.System has detected you are already my Valentine.");
+        });
+
+    </script>
+
+</body>
+</html>
